@@ -51,6 +51,7 @@ var GameEngine = dejavu.Class.declare({
             y: menuY + buttonMargin,
             width: buttonWidth,
             height: buttonHeight,
+            draggable: true
         });
 
         createArcherTowerButton.addEventListener('click', function () {
@@ -64,6 +65,7 @@ var GameEngine = dejavu.Class.declare({
             y: menuY + buttonMargin,
             width: buttonWidth,
             height: buttonHeight,
+            draggable: true
         });
 
         createCannonTowerButton.addEventListener('click', function () {
@@ -77,6 +79,7 @@ var GameEngine = dejavu.Class.declare({
             y: createArcherTowerButton.y() + createArcherTowerButton.height() + buttonMargin,
             width: buttonWidth,
             height: buttonHeight,
+            draggable: true
         });
 
         createFlameTowerButton.addEventListener('click', function () {
