@@ -9,7 +9,7 @@ var GameEngine = dejavu.Class.declare({
 
     __initialize: function () {
         this.__stage = new Kinetic.Stage({
-            width: 1000,
+            width: 900,
             height: 640,
             container: 'game-frame'
         });
@@ -28,18 +28,18 @@ var GameEngine = dejavu.Class.declare({
         var layer = new Kinetic.Layer();
         var menuX = 640;
         var menuY = 0;
-        var menuWidth = 360;
+        var menuWidth = 260;
         var menuHeight = 640;
 
-        var buttonWidth = 100;
-        var buttonHeight = 100;
+        var buttonWidth = 32;
+        var buttonHeight = 32;
 
         var menuFrame = new Kinetic.Rect({
             x: menuX,
             y: menuY,
             width: menuWidth,
             height: menuHeight,
-            fill: 'red',
+            fill: 'gray',
         });
 
         var buttonMargin = (menuWidth - (buttonWidth * 2)) / 3;
@@ -60,7 +60,7 @@ var GameEngine = dejavu.Class.declare({
 
         var createCannonTowerButton = new Kinetic.Rect({
             stroke: 'black',
-            fill: 'gray',
+            fill: 'red',
             x: createArcherTowerButton.x() + createArcherTowerButton.width() + buttonMargin,
             y: menuY + buttonMargin,
             width: buttonWidth,
