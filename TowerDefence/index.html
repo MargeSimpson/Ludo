@@ -2,34 +2,72 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Tower Defence</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tower Defence</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-    </head>
-    <body>
-		<svg width="640" height="640" z-index='-1'>
-			<image width="640" height="640" xlink:href="img/firstLevel.png" />
-		</svg>
-        <div id="game-frame"></div>
-        <script type="text/javascript" src="js/vendor/dejavu.js"></script>
-        <script src="js/vendor/raphael-2.1.2.js"></script>
-        <script type="text/javascript" src="js/vendor/jquery-1.10.2.min.js"></script>
-        <script src="js/vendor/kinetic-5.1.0.js"></script>
-        <script src="js/rendable-interface.js"></script>
-        <script src="js/game-object.js"></script>
-        <script src="js/minion.js"></script>
-        <script src="js/peasant.js"></script>
-        <script src="js/game-engine.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
-    </body>
+
+    <link href="css/jqueru-ui-overcast/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+    <svg width="640" height="640">
+        <image width="640" height="640" xlink:href="img/firstLevel.png" />
+    </svg>
+    <div id="game-field"></div>
+    <div id="game-menu">
+        <ul class="towers">
+            <li class="tower">
+                <div class="arrow-tower" data-tower-type="arrow">Arrow</div>
+            </li>
+            <li class="tower">
+                <div class="cannon-tower" data-tower-type="cannon">Cannon</div>
+            </li>
+            <li class="tower">
+                <div class="flame-tower" data-tower-type="flame">Flame</div>
+            </li>
+        </ul>
+    </div>
+
+    <div id="dialogs">
+        <div id="invalid-location" title="Invalid location">
+            <p>Cannot setup tower at that locations.</p>
+        </div>
+
+        <div id="not-enough-money" title="Not enough money">
+            <p>Not enough money to build tower.</p>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/vendor/dejavu.js"></script>
+    <script type="text/javascript" src="js/vendor/raphael-2.1.2.js"></script>
+
+    <script type="text/javascript" type="text/javascript" src="js/vendor/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/vendor/jquery-ui-1.10.4.custom.min.js"></script>
+
+    <script type="text/javascript" src="js/vendor/kinetic-5.1.0.js"></script>
+
+    <script type="text/javascript" src="js/rendable-interface.js"></script>
+    <script type="text/javascript" src="js/game-object.js"></script>
+    
+    <script src="js/tower.js"></script>
+    <script src="js/arrow-tower.js"></script>
+    <script src="js/flame-tower.js"></script>
+    <script src="js/cannon-tower.js"></script>
+    
+    <script type="text/javascript" src="js/minion.js"></script>
+    <script type="text/javascript" src="js/ninja.js"></script>
+
+    <script type="text/javascript" src="js/game-engine.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
 </html>

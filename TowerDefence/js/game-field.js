@@ -8,34 +8,10 @@ var GameField = dejavu.Class.declare({
     __minions: null,
     __towers: null,
 
-    initialize: function(x, y, width, height, path) {
+    initialize: function (x, y, width, height, path) {
         this.$super(x, y);
         this.setWidth(__width);
         this.setHeight(__height);
-		if (!path) {
-			path = [ 
-			{x: 16, y: 0},
-			{x: 16, y: 3},
-			{x: 8,  y: 3},
-			{x: 8,  y: 0},
-			{x: 5,  y: 0},
-			{x: 5,  y: 2},
-			{x: 6,  y: 2},
-			{x: 6,  y: 4},
-			{x: 5,  y: 4},
-			{x: 5,  y: 8},
-			{x: 7,  y: 8},	
-			{x: 7,  y: 11},
-			{x: 16, y: 11},
-			{x: 16, y: 6},		
-			{x: 11, y: 6},
-			{x: 11, y: 15},
-			{x: 14, y: 15},	
-			{x: 14, y: 18},
-			{x: 7,  y: 18},
-			{x: 7,  y: 19}			 
-			]
-		}
         this.setPath(path);
         this.setMinions([]);
         this.setTowers([]);
@@ -43,7 +19,7 @@ var GameField = dejavu.Class.declare({
 
     setWidth: function (width) {
         this.__width = width;
-        
+
         return this;
     },
 
@@ -89,5 +65,49 @@ var GameField = dejavu.Class.declare({
 
     getTowers: function () {
         return this.__towers;
-    }
+    },
+
+    addTower: function (tower) {
+        var towers = this.getTowers();
+
+        if (this.__isTowerOnAnotherTower(tower) ||
+           !this.__isTowerOnPath(tower)) {
+            throw {
+                name: 'InvalidTowerPosition',
+                message: 'Tower cannot be set at position (' + tower.getX() + ', ' + tower.getY() + ')',
+            };
+        }
+
+        towers.push(tower);
+    },
+
+    __isTowerOnAnotherTower: function (tower) {
+        var towers = this.getTowers();
+
+        for (var i = 0, length = towers.length; i < length; i++) {
+            var currentTower = towers[i];
+
+            if (tower.getX() == currentTower.getX() && tower.getY() == currentTower.getY()) {
+                return true;
+            }
+        }
+
+        return false;
+    },
+
+    __isTowerOnPath: function (tower) {
+        var path = this.getPath();
+
+        for (var i = 0, lenght = path.lenght; i < length; i++) {
+            var pathTile = path[i];
+
+            if (tower.getX() == pathTile.x && tower.getY() == pathTile.y) {
+                return true;
+            }
+        }
+
+        return false;
+    },
+
+
 });

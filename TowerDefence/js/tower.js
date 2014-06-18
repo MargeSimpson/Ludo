@@ -70,7 +70,7 @@ var Tower = dejavu.AbstractClass.declare({
         return this.__affectedRadius;
     },
 
-    $abstracts: {
-        attack: function() {}
-    }
+    //$abstracts: {
+    //    attack: function() {}
+    //}
 });
